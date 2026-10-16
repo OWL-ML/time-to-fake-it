@@ -3,7 +3,7 @@
 **Kajaree Das, Oliver Böse, Subarnaduti Paul, Gabriel Storch, Martin Mundt**<br>
 University of Bremen
 
-[[Paper (arXiv)]](https://arxiv.org/abs/XXXX.XXXXX) · [[Citation]](#citation)
+[[Paper (arXiv)]](https://arxiv.org/pdf/2610.21974) · [[Citation]](#citation)
 
 Official code for training continual-learning deepfake detectors on a chronological sequence of 11 generators and tracking their accuracy and demographic fairness over time.
 
@@ -380,7 +380,7 @@ If you find this work useful, please cite:
 @article{das2026timetofakeit,
   title   = {Time to Fake It: Continual Machine Learning Intensifies Unfairness in Deepfake Detection},
   author  = {Das, Kajaree and B{\"o}se, Oliver and Paul, Subarnaduti and Storch, Gabriel and Mundt, Martin},
-  journal = {arXiv preprint arXiv:XXXX.XXXXX},
+  journal = {arXiv preprint arXiv:2610.21974},
   year    = {2026}
 }
 ```
