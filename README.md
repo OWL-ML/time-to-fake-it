@@ -144,6 +144,16 @@ Run all commands from the repository root.
    uv sync
    ```
 
+   > [!WARNING]
+   > On Linux, `torch` and `torchvision` are installed from the PyTorch **CUDA 12.8** index (`pytorch-cu128` in [`pyproject.toml`](pyproject.toml)). Your NVIDIA driver must support CUDA 12.8 or newer. Check the `CUDA Version` shown by `nvidia-smi`, which is the newest CUDA version the driver supports. If it is lower than 12.8, or you want a different build, change both the index `name` and `url` under `[tool.uv.sources]` / `[[tool.uv.index]]` to a build your driver supports (PyTorch 2.9 offers `cu126`, `cu128` and `cu130`, e.g. `https://download.pytorch.org/whl/cu126`), then re-lock and sync:
+   >
+   > ```bash
+   > uv lock
+   > uv sync
+   > ```
+   >
+   > macOS uses the default PyPI builds and is not affected.
+
    This creates/updates `.venv` using `uv.lock`. To include a new dependency, update `pyproject.toml` and run:
 
    ```bash

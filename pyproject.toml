@@ -14,8 +14,8 @@ dependencies = [
     "loguru>=0.6.0",
     "tqdm>=4.64.0",
     "matplotlib>=3.5.0",
-    "torch>=2.9.0",
-    "torchvision>=0.24.0",
+    "torch>=2.9.0,<2.10",
+    "torchvision>=0.24.0,<0.25",
     "pandas>=2.3.3",
     "scipy>=1.16.3",
     # "numpy>=2.3.5",
@@ -26,7 +26,8 @@ dependencies = [
     "seaborn>=0.13.2",
     "scikit-learn>=1.7.2",
     "apricot-select>=0.6.1",
-    "pyarrow>=26.0.0",
+    "pyarrow>=20,<26",
+    "python-dotenv>=1.2.4",
 ]
 
 [tool.setuptools.packages.find]
@@ -36,3 +37,15 @@ exclude = ["tests*"]
 
 [tool.setuptools.package-data]
 "*" = ["*.json", "*.md", "*.txt"]
+
+# On Linux, install PyTorch built for CUDA 12.8 (works with NVIDIA drivers
+# for CUDA >= 12.8). PyPI's default Linux wheels can target newer CUDA
+# versions than the GPU servers' drivers support. macOS uses the PyPI builds.
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cu128", marker = "sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu128"
+url = "https://download.pytorch.org/whl/cu128"
+explicit = true
